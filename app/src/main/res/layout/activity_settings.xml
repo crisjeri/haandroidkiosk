@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView style="@style/SectionTitle" android:text="@string/settings_title" />
+        <TextView style="@style/SectionTitle" android:text="@string/section_web" />
+        <EditText android:id="@+id/home_url" style="@style/SettingsInput" android:hint="@string/home_assistant_url" android:inputType="textUri" />
+        <CheckBox android:id="@+id/allow_http" style="@style/SettingsCheck" android:text="@string/allow_http" />
+        <CheckBox android:id="@+id/reload_on_wake" style="@style/SettingsCheck" android:text="@string/reload_on_wake" />
+        <CheckBox android:id="@+id/reload_on_network" style="@style/SettingsCheck" android:text="@string/reload_on_network" />
+
+        <TextView style="@style/SectionTitle" android:text="@string/section_motion" />
+        <CheckBox android:id="@+id/motion_enabled" style="@style/SettingsCheck" android:text="@string/motion_enabled" />
+        <CheckBox android:id="@+id/diagnostic_mode" style="@style/SettingsCheck" android:text="@string/diagnostic_mode" />
+        <TextView style="@style/SettingsFieldLabel" android:text="@string/sensitivity" />
+        <TextView style="@style/SettingsFieldDescription" android:text="@string/sensitivity_description" />
+        <EditText android:id="@+id/sensitivity" style="@style/SettingsInput" android:inputType="number" />
+        <TextView style="@style/SettingsFieldLabel" android:text="@string/analysis_fps" />
+        <TextView style="@style/SettingsFieldDescription" android:text="@string/analysis_fps_description" />
+        <EditText android:id="@+id/analysis_fps" style="@style/SettingsInput" android:inputType="number" />
+        <TextView style="@style/SettingsFieldLabel" android:text="@string/dim_timeout" />
+        <TextView style="@style/SettingsFieldDescription" android:text="@string/dim_timeout_description" />
+        <EditText android:id="@+id/dim_timeout" style="@style/SettingsInput" android:inputType="number" />
+        <TextView style="@style/SettingsFieldLabel" android:text="@string/off_delay" />
+        <TextView style="@style/SettingsFieldDescription" android:text="@string/off_delay_description" />
+        <EditText android:id="@+id/off_delay" style="@style/SettingsInput" android:inputType="number" />
+
+        <TextView style="@style/SectionTitle" android:text="@string/section_display" />
+        <TextView style="@style/SettingsFieldLabel" android:text="@string/screen_orientation" />
+        <TextView style="@style/SettingsFieldDescription" android:text="@string/screen_orientation_description" />
+        <Spinner
+            android:id="@+id/screen_orientation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/screen_orientation_entries"
+            android:spinnerMode="dialog" />
+        <TextView style="@style/SettingsFieldLabel" android:text="@string/active_brightness" />
+        <TextView style="@style/SettingsFieldDescription" android:text="@string/active_brightness_description" />
+        <EditText android:id="@+id/active_brightness" style="@style/SettingsInput" android:inputType="number" />
+        <TextView style="@style/SettingsFieldLabel" android:text="@string/dim_brightness" />
+        <TextView style="@style/SettingsFieldDescription" android:text="@string/dim_brightness_description" />
+        <EditText android:id="@+id/dim_brightness" style="@style/SettingsInput" android:inputType="number" />
+        <TextView style="@style/SettingsDescription" android:text="@string/admin_recommended" />
+        <TextView android:id="@+id/admin_status" style="@style/SettingsDescription" />
+        <CheckBox android:id="@+id/lock_task" style="@style/SettingsCheck" android:text="@string/lock_task" />
+
+        <TextView style="@style/SectionTitle" android:text="@string/section_startup" />
+        <CheckBox android:id="@+id/start_after_boot" style="@style/SettingsCheck" android:text="@string/start_after_boot" />
+        <CheckBox android:id="@+id/open_after_boot" style="@style/SettingsCheck" android:text="@string/open_after_boot" />
+
+        <TextView style="@style/SectionTitle" android:text="@string/section_security" />
+        <TextView style="@style/SettingsDescription" android:text="@string/camera_permission_info" />
+        <Button android:id="@+id/request_camera" style="@style/SettingsButton" android:text="@string/request_camera" />
+        <Button android:id="@+id/activate_admin" style="@style/SettingsButton" android:text="@string/activate_admin" />
+        <Button android:id="@+id/deactivate_admin" style="@style/SettingsButton" android:text="@string/deactivate_admin" />
+        <Button android:id="@+id/change_pin" style="@style/SettingsButton" android:text="@string/change_pin" />
+
+        <TextView style="@style/SectionTitle" android:text="@string/section_actions" />
+        <Button android:id="@+id/test_camera" style="@style/SettingsButton" android:text="@string/test_camera" />
+        <Button android:id="@+id/reload_page" style="@style/SettingsButton" android:text="@string/reload_page" />
+        <Button android:id="@+id/clear_cache" style="@style/SettingsButton" android:text="@string/clear_webview_cache" />
+        <Button android:id="@+id/diagnostics" style="@style/SettingsButton" android:text="@string/diagnostics" />
+        <Button android:id="@+id/exit_kiosk" style="@style/SettingsButton" android:text="@string/exit_kiosk" />
+        <Button android:id="@+id/save" style="@style/SettingsButtonPrimary" android:text="@string/save" />
+    </LinearLayout>
+</ScrollView>

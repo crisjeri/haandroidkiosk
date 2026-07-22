@@ -1,0 +1,39 @@
+# Gradle and Android Studio
+.gradle/
+.idea/
+*.iml
+local.properties
+**/build/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Signing keys and local secrets
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+keystore.properties
+.env
+.env.*
+!.env.example
+
+# Generated packages, logs, and diagnostics
+*.apk
+*.aab
+*.apks
+*.idsig
+*.log
+*.hprof
+sys.txt
+sys2.txt
+
+# Local tools and editors
+.codex/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~

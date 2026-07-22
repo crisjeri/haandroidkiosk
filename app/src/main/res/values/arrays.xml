@@ -1,0 +1,8 @@
+<resources>
+    <string-array name="screen_orientation_entries">
+        <item>Na šířku</item>
+        <item>Na šířku obráceně</item>
+        <item>Na výšku</item>
+        <item>Na výšku obráceně</item>
+    </string-array>
+</resources>

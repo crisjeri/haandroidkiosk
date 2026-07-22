@@ -1,0 +1,71 @@
+# Nahrani souboru
+
+adb root
+adb remount
+
+adb push battery-charge-control.sh \
+    /system/bin/battery-charge-control.sh
+
+adb push battery-charge-control.rc \
+    /system/etc/init/battery-charge-control.rc
+
+# Nastaveni prav
+adb shell chmod 0755 \
+    /system/bin/battery-charge-control.sh
+
+adb shell chmod 0644 \
+    /system/etc/init/battery-charge-control.rc
+
+adb shell chown root:root \
+    /system/bin/battery-charge-control.sh \
+    /system/etc/init/battery-charge-control.rc
+
+# SELinux kontext
+
+adb shell restorecon \
+    /system/bin/battery-charge-control.sh \
+    /system/etc/init/battery-charge-control.rc
+
+# kontrola
+adb shell ls -lZ \
+    /system/bin/battery-charge-control.sh \
+    /system/etc/init/battery-charge-control.rc
+
+# restart
+adb reboot
+adb wait-for-device
+adb root
+
+# kontrola logu
+adb logcat -b all -d |
+grep -E 'init.*battctl|battctl|battery-charge-control|Cannot|cannot|execv|Exec'
+
+adb logcat -b all -d -s battery-charge-control
+
+# Kontrola spusteni
+adb shell getprop init.svc.battctl
+running
+
+# Kontrola spusteneho procesu
+adb shell '
+for p in /proc/[0-9]*; do
+    cmd="$(tr "\0" " " < "$p/cmdline" 2>/dev/null)"
+    case "$cmd" in
+        *battery-charge-control.sh*)
+            echo "${p##*/}: $cmd"
+            ;;
+    esac
+done
+'
+
+3790: /system/bin/sh /system/bin/battery-charge-control.sh 
+5945: /system/bin/sh -c 
+for p in /proc/[0-9]*; do
+    cmd="$(tr "" " " < "$p/cmdline" 2>/dev/null)"
+    case "$cmd" in
+        *battery-charge-control.sh*)
+            echo "${p##*/}: $cmd"
+            ;;
+    esac
+done
+
